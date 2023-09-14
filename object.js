@@ -59,7 +59,8 @@ const result = data.reduce((prevVal, val, idx) => {
   Person ${idx + 1}\n
   Name: ${val.name}\n
   Age: ${val.age}\n
-  Job: ${val.job}
+  Job: ${val.job}\n
+  --------------------
   `;
-});
+}, "");
 console.log(result);
