@@ -72,7 +72,7 @@ function filterArray(arr, cb) {
   for (let i = 0; i < arr.length; i++) {
     const isKeeping = cb(arr[i]);
     if (isKeeping) {
-      /*(isKeeping === true)*/ result.push(arr[i]);
+      /*(isKeeping === true)*/ result.push(arr[i]); //isKeeping alway true becuase alway return true from below function
     }
   }
 
@@ -81,13 +81,38 @@ function filterArray(arr, cb) {
 
 const beforeFilter = [-1, 3, 20, -24];
 
+/*const itemFunc = (item) => {
+  return item > 0
+}*/ //can use this code intead arrow item below but need to change arrow to itemFunc arrgument
 const afterFilter = filterArray(beforeFilter, (item) => {
   return item > 0;
   /*if (item >= 0) {
     return true;
   } else {
     return false;
-  }*/
+  }*/ //more code same result
 });
 
 console.log(afterFilter);
+
+//3 Call back --------------
+let takeorder = (call_production) => {
+  console.log("1.place order, please call production");
+  call_production();
+};
+
+let production = (call_sendproduct) => {
+  console.log("2.receive order, make production");
+  call_sendproduct();
+};
+
+let sendproduct = () => {
+  console.log("3.receive production, send to customer");
+};
+
+//not use takeorder(production(sendproduct)) it will return takeorder(undefined(undefined)) error!!
+takeorder(() => {
+  production(() => {
+    sendproduct(() => {});
+  });
+});
