@@ -367,7 +367,7 @@ const fib = (end) => {
   let next = 1;
   let result = 0;
   let fibResult = "";
-  for (i = 0; i < end; i++) {
+  for (let i = 0; i < end; i++) {
     fibResult += result + ", ";
     start = next;
     next = result;
@@ -393,8 +393,8 @@ const fooFire = "Foo🔥";
 //console.log(bar.charCodeAt(0));
 const toBytes = (text) => {
   let newArr = [];
-  for (i = 0; i < text.length; i++) {
-    if (text.charCodeAt(i) < 1000) {
+  for (let i = 0; i < text.length; i++) {
+    if (text.charCodeAt(i) <= 255) {
       newArr.push(text.charCodeAt(i));
     }
   }
@@ -414,7 +414,7 @@ const arr = [12, -13, 14, 4, 2, -1, -18];
 const maxNegMinPos = (arr) => {
   let posArr = [];
   let negArr = [];
-  for (i = 0; i < arr.length; i++) {
+  for (let i = 0; i < arr.length; i++) {
     if (arr[i] < 0) {
       negArr.push(0 - arr[i]);
     } else {
@@ -438,3 +438,53 @@ maxNegMinPos(arr);
 M1*/
 
 //M2
+/*---------------------------------------------------M2
+const prime = (num) => {
+  let numArr = [];
+  let primeArr = [];
+  for (let i = 2; i < num * 10; i++) {
+    numArr.push(i);
+  }
+  for (let i = 0; i < numArr.length; i++) {
+    if (
+      numArr[i] % 2 !== 0 &&
+      numArr[i] % 3 !== 0 &&
+      numArr[i] % 5 !== 0 &&
+      numArr[i] % 7 !== 0
+    ) {
+      primeArr.push(numArr[i]);
+    }
+  }
+  primeArr.unshift(2, 3, 5, 7);
+  let resultArr = [];
+  resultArr = primeArr.slice(0, num);
+  console.log(resultArr);
+  numArr.sort();
+};
+prime(4); // [2, 3, 5, 7]
+prime(5); // [2, 3, 5, 7, 11]
+prime(999); //for test
+M2*/
+
+//M3
+/*---------------------------------------------------M3
+const chart = [110, 105, 95, 9, 80, 17, 120, 115, 11];
+
+const drawDown = (arr) => {
+  let subNumArr = [];
+  let newSubArr = [];
+  for (i = 0; i < arr.length; i++) {
+    subNumArr.push(arr[i] - arr[i + 1]);
+  }
+  subNumArr.pop();
+  for (i = 0; i < subNumArr.length; i++) {
+    if (subNumArr[i] >= 0) {
+      newSubArr.push(subNumArr[i]);
+    } else {
+      newSubArr.push(0 - subNumArr[i]);
+    }
+  }
+  console.log(Math.max(...newSubArr));
+};
+drawDown(chart); // 109
+M3*/
