@@ -459,7 +459,6 @@ const prime = (num) => {
   let resultArr = [];
   resultArr = primeArr.slice(0, num);
   console.log(resultArr);
-  numArr.sort();
 };
 prime(4); // [2, 3, 5, 7]
 prime(5); // [2, 3, 5, 7, 11]
@@ -473,11 +472,11 @@ const chart = [110, 105, 95, 9, 80, 17, 120, 115, 11];
 const drawDown = (arr) => {
   let subNumArr = [];
   let newSubArr = [];
-  for (i = 0; i < arr.length; i++) {
+  for (let i = 0; i < arr.length; i++) {
     subNumArr.push(arr[i] - arr[i + 1]);
   }
   subNumArr.pop();
-  for (i = 0; i < subNumArr.length; i++) {
+  for (let i = 0; i < subNumArr.length; i++) {
     if (subNumArr[i] >= 0) {
       newSubArr.push(subNumArr[i]);
     } else {
@@ -488,3 +487,49 @@ const drawDown = (arr) => {
 };
 drawDown(chart); // 109
 M3*/
+
+//H1
+
+const articleCleverse =
+  "I am from Cleverse Academy! Today, I’m here to teach you some JavaScript programming";
+
+const summarize = (text, sym, len) => {
+  let sym2 = sym.split("");
+  sym2.shift();
+  let sym3 = sym2.join("");
+
+  let textArr = [];
+  let textCount = sym3.length - 1;
+  let result = "";
+  textArr = text.split(" ");
+  if (len < 3) {
+    result = "";
+  }
+  for (let i = 0; i < textArr.length; i++) {
+    if (len < 3) {
+      result = " ";
+      break;
+    }
+    if (textCount + textArr[i].length > len) {
+      result += sym3;
+      break;
+    }
+    result += textArr[i] + " ";
+    textCount += 1;
+    for (let j = 0; j < textArr[i].length; j++) {
+      textCount++;
+    }
+  }
+  //console.log(textArr);
+  console.log(textCount);
+  console.log(result);
+};
+
+summarize(articleCleverse, " ...", 30); // "I am from Cleverse Academy! ..."
+
+const articleFoo = "Good morning ladies and gentlemen";
+
+summarize(articleFoo, " ...", 2); // ""
+summarize(articleFoo, " ...", 10); // "Good ..."
+summarize(articleFoo, " ...", 20); // "Good morning ..."
+summarize(articleFoo, " ...", 25); // "Good morning ladies ..."
