@@ -385,13 +385,24 @@ fib(6); // 0, 1, 1, 2, 3, 5
 ---------------------------------------------------20*/
 
 //21
+/*
 const bar = "Bar";
 const foo = "Foo";
 const fooFire = "Foo🔥";
 
-const toBytes = () => {};
+//console.log(bar.charCodeAt(0));
+const toBytes = (text) => {
+  let newArr = [];
+  for (i = 0; i < text.length; i++) {
+    if (text.charCodeAt(i) < 1000) {
+      newArr.push(text.charCodeAt(i));
+    }
+  }
+  console.log(newArr);
+};
 
 //.charCodeAt(i)
 toBytes(bar); // [ 66, 97, 114 ]
 toBytes(foo); // [ 70, 111, 111 ]
 toBytes(fooFire); // [ 70, 111, 111 ] because the emoji is invalid ASCII
+---------------------------------------------------21*/
