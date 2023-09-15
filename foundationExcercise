@@ -163,3 +163,116 @@ fizzBuzz(20);
 ---------------------------------------------------8*/
 
 //9
+/*
+const gcd = (a, b) => {
+  let c = 0;
+  if (a % b === 0 || b % a === 0) {
+    if (a < b) {
+      c = a;
+    } else {
+      c = b;
+    }
+  } else if (a > b) {
+    c = a % b;
+  } else {
+    c = b % a;
+  }
+  console.log(c);
+};
+gcd(10, 15); // 5
+gcd(18, 12); // 6
+gcd(3, 2); // 1
+gcd(12, 24); //test
+---------------------------------------------------9*/
+
+//10
+/*
+const arr = [120, 112, 111, 130, 169, 101];
+
+const filterLt = (n, arr) => {
+  let newArr = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] < n) {
+      newArr.push(arr[i]);
+    }
+  }
+  console.log(newArr);
+};
+
+filterLt(0, arr); // []
+filterLt(112, arr); // [111, 101]
+---------------------------------------------------10*/
+
+//11
+/*
+const arr = [120, 112, 111, 130, 169, 101];
+
+const filterGt = (n, arr) => {
+  let newArr = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] > n) {
+      newArr.push(arr[i]);
+    }
+  }
+  console.log(newArr);
+};
+
+filterGt(0, arr); // [120, 112, 111, 130, 169, 101]
+filterGt(112, arr); // [120, 130, 169]
+---------------------------------------------------11*/
+
+//12
+/*
+const compoundedReturn = (a, b, c) => {
+  let result = a * (1 + b / 100) ** c;
+  console.log(result.toFixed(0));
+};
+compoundedReturn(100, 1, 1); // 101
+compoundedReturn(100, 10, 1); // 110
+compoundedReturn(100, 10, 2); // 121
+---------------------------------------------------12*/
+
+//13
+/*
+const mean = (arr) => {
+  let result = 0;
+  for (let i = 0; i < arr.length; i++) {
+    if (typeof arr[i] === typeof i) {
+      result += arr[i];
+      if (i === arr.length - 1) {
+        result /= arr.length;
+      }
+    } else {
+      result = null;
+      break;
+    }
+  }
+  console.log(result);
+};
+mean([1, 2, 3]); // 2
+mean([1, "foo", 3]); // null
+
+// arr = [1, 2, 3];
+// console.log(typeof arr[0]);
+---------------------------------------------------13*/
+
+//14
+/*
+const mid = (arr) => {
+  let newArr = [];
+  if (arr.length % 2 === 0) {
+    newArr.push(arr[arr.length / 2 - 1]);
+    newArr.push(arr[arr.length / 2]);
+  } else {
+    newArr.push(arr[arr.length / 2 - 0.5]);
+  }
+  console.log(newArr);
+};
+
+mid(["john"]); // ["john"]
+mid(["foo", "bar", "baz"]); // ["bar"]
+mid([1, 2, 3, 4]); // [2, 3]
+mid([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]); // for test
+---------------------------------------------------14*/
+
+//15
