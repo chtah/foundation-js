@@ -499,7 +499,7 @@ const summarize = (text, sym, len) => {
   let sym3 = sym2.join("");
 
   let textArr = [];
-  let textCount = sym3.length - 1;
+  let textCount = sym3.length;
   let result = "";
   textArr = text.split(" ");
   if (len < 3) {
@@ -521,7 +521,7 @@ const summarize = (text, sym, len) => {
     }
   }
   //console.log(textArr);
-  console.log(textCount);
+  //console.log(textCount);
   console.log(result);
 };
 
