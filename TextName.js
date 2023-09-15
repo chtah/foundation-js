@@ -1,12 +1,12 @@
 let row = "";
-for (let i = 7; i > 0; i--) {
-  for (let j = 7; j > 0; j--) {
-    row += "*";
-    if (j === 1) {
+for (let i = 1; i <= 7; i++) {
+  for (let j = 1; j <= 7; j++) {
+    if (j <= i) {
+      row += "*";
+    }
+    if (j === 7) {
       row += "\n";
     }
   }
 }
 console.log(row);
-// iHori.push("*");
-// console.log(iHori.join(""));
