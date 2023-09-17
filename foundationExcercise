@@ -536,7 +536,7 @@ summarize(articleFoo, " ...", 25); // "Good morning ladies ..."
 H1*/
 
 //H2.0
-//-------------------------------------------------H2.0 (solution 1)
+/*-------------------------------------------------H2.0 (solution 1)
 const mode = (arr) => {
   let countArr = [];
   let count = 1;
@@ -619,3 +619,61 @@ const mapMode = (mapArr) => {
 };
 
 mapMode(arr); // [1, null, null]
+//H2.0 and H2.1 */
+
+//H3
+/*-------------------------------------------------H3
+const imageBytes = [1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1, 1, 1, 1];
+
+const transpose = (imageBytesArr, w, h) => {
+  let newArr = [];
+  let resultArr = [];
+  for (let i = 1; i <= h; i++) {
+    for (let j = w * (i - 1); j < w * i; j++) {
+      newArr.push(imageBytesArr[j]);
+    }
+    resultArr.push([...newArr]);
+    newArr.splice(0, w);
+  }
+  console.log(resultArr);
+};
+
+transpose(imageBytes, 8, 2);
+// [
+//  [1, 0, 1, 0, 0, 0, 0, 0], // => the 1st row of pixels of imageBytes
+//  [1, 0, 1, 0, 1, 1, 1, 1], // => the 2nd row of pixels of imageBytes
+// ]
+
+transpose(imageBytes, 2, 8); // The same array, but now 2x8
+// [
+//  [1, 0], => the 1st row of this rendition of the image
+//  [1, 0], => the 2nd row
+//  [0, 0], => the 3rd row
+//  [0, 0], => the 4th row
+//  [1, 0], => the 5th row
+//  [1, 0], => the 6th row
+//  [1, 1], => the 7th row
+//  [1, 1], => the 8th row
+// ]
+//H3*/
+
+//H4
+/*-------------------------------------------------H4
+const image = [1, 0, 1, 0, 1, 1]; // len = 6
+
+const transposable = (imageArr, w, h) => {
+  let result = null;
+  if ((w * h) % imageArr.length === 0) {
+    result = true;
+  } else {
+    result = false;
+  }
+  console.log(result);
+};
+
+transposable(image, 2, 3); // true
+transposable(image, 6, 1); // true
+transposable(image, 4, 2); // false
+//H4*/
+
+//5
