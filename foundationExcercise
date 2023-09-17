@@ -536,7 +536,7 @@ summarize(articleFoo, " ...", 25); // "Good morning ladies ..."
 H1*/
 
 //H2.0
-/*-------------------------------------------------H2.0 (solution 1)
+//-------------------------------------------------H2.0 (solution 1)
 const mode = (arr) => {
   let countArr = [];
   let count = 1;
@@ -547,7 +547,7 @@ const mode = (arr) => {
   });
   //console.log(arr);
 
-  //create 2 array. countArr for count duplicate number in arr and reserArr for store number that cout in same index
+  //create 2 array. countArr for count duplicate number in arr and reserArr for store number that count in same index
   for (let i = 0; i < arr.length; i++) {
     if (arr[i] === arr[i + 1]) {
       count++;
@@ -572,7 +572,9 @@ const mode = (arr) => {
   //for set result to null if no max value. and store max freq num in result
   let result = 0;
   if (
-    newCountArr[newCountArr.length - 1] === newCountArr[newCountArr.length - 2]
+    newCountArr[newCountArr.length - 1] ===
+      newCountArr[newCountArr.length - 2] ||
+    arr.length < 3
   ) {
     result = null;
   } else {
@@ -585,9 +587,35 @@ const mode = (arr) => {
 
   //console.log(newCountArr);
   console.log(result);
+  return result;
 };
-mode([1, 2, 1, 4, 5, 6, 2, 1]); // 1
-mode([2, 5, 2, 4, 5]); // null
-mode([1, 2, 4, 7, 9, 8, 5, 4, 8, 9, 8, 7, 8]); // for test 8
-mode([1, 2, 3, 1, 2, 3, 4, 1, 2, 4]); // for test null
-H2.0*/
+// mode([1, 2, 1, 4, 5, 6, 2, 1]); // 1
+// mode([2, 5, 2, 4, 5]); // null
+// mode([1, 2, 4, 7, 9, 8, 5, 4, 8, 9, 8, 7, 8]); // for test 8
+// mode([1, 2, 3, 1, 2, 3, 4, 1, 2, 4]); // for test null
+// mode([100, 200]); for test
+//H2.0
+
+//H2.1
+//-------------------------------------------------H2.1
+const arr = [
+  [1, 2, 3, 1],
+  [100, 200],
+  [10, 20],
+];
+
+const mapMode = (mapArr) => {
+  let newMapArr = [];
+  let resultArr = [];
+  for (let i = 0; i < mapArr.length; i++) {
+    for (let j = 0; j < mapArr[i].length; j++) {
+      newMapArr.push(mapArr[i][j]);
+    }
+    resultArr.push(mode(newMapArr));
+    //console.log(newMapArr);
+    newMapArr.splice(0, newMapArr.length - 1);
+  }
+  console.log(resultArr);
+};
+
+mapMode(arr); // [1, null, null]
